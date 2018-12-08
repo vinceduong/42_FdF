@@ -6,7 +6,7 @@
 #    By: vduong <vduong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/07 21:40:25 by vduong            #+#    #+#              #
-#    Updated: 2018/12/07 22:38:30 by vduong           ###   ########.fr        #
+#    Updated: 2018/12/08 09:54:12 by vduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,16 @@ CC = gcc $(FLAGS) $(INCLUDES)
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDES = -I./minilbx -I./libft/includes -I./files/includes
+MLX_FLAGS = -Lminilbx/ -framework OpenGL -framework AppKit 
+
+INCLUDES = -I./minilbx -I./libft -I./files/includes
 
 NAME = fdf
 
 SRCS = files/sources/main.c\
 		files/sources/error.c\
 		files/sources/init.c\
+		files/sources/parse.c\
 
 LIBFT = libft/libft.a
 
@@ -34,11 +37,12 @@ all : $(NAME)
 
 $(LIBFT) : 
 	make -C libft
+
 $(MINILBX) : 
 	make -C minilbx
 
 $(NAME) : $(OBJS) $(LIBFT) $(MINILBX)
-	$(CC) $(OBJS) $(LIBFT) $(MINILBX) -o $(NAME)
+	$(CC) $(OBJS) $(LIBFT) $(MINILBX) $(MLX_FLAGS) -o $(NAME)
 
 clean :
 	rm -rf $(OBJS)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vduong <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 18:28:26 by vduong            #+#    #+#             */
-/*   Updated: 2017/11/22 11:40:02 by vduong           ###   ########.fr       */
+/*   Updated: 2018/12/08 09:52:29 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# define BUFF_SIZE	20
 
 typedef	struct		s_list
 {
@@ -87,5 +88,8 @@ int					ft_sqrt(int n);
 int					ft_power(int n, int exp);
 int					ft_min(int *tab, int size);
 int					ft_max(int *tab, int size);
-
+int					ft_instr(char *str, char c);
+int					ft_isinstr(char *str, char c);
+int					ft_strcutat(char **str, char find);
+int					get_next_line(const int fd, char **line);
 #endif

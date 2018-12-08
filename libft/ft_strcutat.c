@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strcutat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vduong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/17 14:33:14 by vduong            #+#    #+#             */
-/*   Updated: 2017/11/17 14:33:17 by vduong           ###   ########.fr       */
+/*   Created: 2017/12/20 17:52:56 by vduong            #+#    #+#             */
+/*   Updated: 2017/12/20 18:04:45 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int		ft_strcutat(char **str, char find)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
+	int i;
+
+	i = 0;
+	while ((*str)[i])
+	{
+		if ((*str)[i] == find)
+		{
+			ft_strclr(*str + i);
+			return (1);
+		}
+		i++;
+	}
 	return (0);
 }

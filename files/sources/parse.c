@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/07 22:30:20 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/08 09:58:35 by vduong           ###   ########.fr       */
+/*   Created: 2018/12/08 09:15:17 by vduong            #+#    #+#             */
+/*   Updated: 2018/12/08 10:20:18 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void init(t_fdf *fdf, char *filename)
+void	parse(t_fdf* fdf, char *map_name)
 {
-	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
+	int fd;
+	char *line;
+	char *map;
+
+	if((fd = open(map_name, O_RDONLY)) < 0)
+		error("Can't open map\n");
+	line = NULL;
+	if (!(map = ft_strnew(1)))
 		error("Malloc failed\n");
-	parse(fdf, filename);
-	/*fdf->mlx.ptr = mlx_init();
-	fdf->mlx.window = mlx_new_window(fdf->mlx.ptr, WIN_X, WIN_Y, "FdF");
-	mlx_loop(fdf->mlx.window);*/
+	while (get_next_line(fd, &line) > 0)
+	{
+		map = ft_strjoin(map, line);
+		map = ft_strjoin(map, "\n");
+		ft_strdel(&line);
+	}
+	(void)fdf;
 }

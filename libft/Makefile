@@ -3,18 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vduong <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: vduong <vduong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 14:02:33 by vduong            #+#    #+#              #
-#    Updated: 2017/11/22 14:02:41 by vduong           ###   ########.fr        #
+#    Updated: 2018/12/08 09:52:04 by vduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
-CC = gcc
-
-FLAGS = -Wall -Wextra -Werror
 
 SRC = ./ft_atoi.c\
 	  ./ft_bzero.c\
@@ -84,18 +80,23 @@ SRC = ./ft_atoi.c\
 	  ./ft_power.c \
 	  ./ft_min.c \
 	  ./ft_max.c \
+	  ./ft_instr.c \
+	  ./ft_isinstr.c \
+	  ./ft_strcutat.c \
+	  ./get_next_line.c \
 
+INC = ./libft.h
 
 OBJ = $(SRC:.c=.o)
 
 $(NAME):
-	$(CC) -c $(FLAGS) $(SRC) -I./includes
+	gcc -c -Wall -Wextra -Werror $(SRC)
 	ar r $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 all : $(NAME)
 
-clean :
+clean : 
 	/bin/rm -rf $(OBJ)
 
 fclean :clean

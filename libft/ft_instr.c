@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_instr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vduong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/17 14:33:14 by vduong            #+#    #+#             */
-/*   Updated: 2017/11/17 14:33:17 by vduong           ###   ########.fr       */
+/*   Created: 2017/12/18 14:56:14 by vduong            #+#    #+#             */
+/*   Updated: 2017/12/20 16:49:48 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_instr(char *str, char c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	int count;
+
+	count = 0;
+	while (str[count])
+	{
+		if (str[count] == c)
+			return (count);
+		count++;
+	}
+	return (count - 1);
 }
