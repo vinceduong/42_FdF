@@ -6,7 +6,7 @@
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 09:15:17 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/08 14:36:19 by vduong           ###   ########.fr       */
+/*   Updated: 2018/12/09 19:58:44 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_points(t_fdf *fdf)
 		j = 0;
 		while (j < fdf->y)
 		{
-			printf(" [%d, %d, %d] ", fdf->points[i][j].x, fdf->points[i][j].y, fdf->points[i][j].z);
+			printf(" [%d, %d, %d, %d, %d] ", fdf->points[i][j].x, fdf->points[i][j].y, fdf->points[i][j].z, fdf->points[i][j].real_x, fdf->points[i][j].real_y);
 			j++;
 		}
 		printf("\n");

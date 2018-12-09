@@ -6,7 +6,7 @@
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 18:15:17 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/09 18:32:15 by vduong           ###   ########.fr       */
+/*   Updated: 2018/12/09 20:33:04 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_lines(t_fdf *fdf)
 			if (j < fdf->x - 1)
 				trace(fdf, fdf->points[i][j], fdf->points[i][j + 1]);
 			if (i < fdf->y - 1)
-				trace(fdf, fdf->points[i][j], fdf->points[i][j + 1]);
+				trace(fdf, fdf->points[i][j], fdf->points[i + 1][j]);
 			j++;
 		}
 		i++;

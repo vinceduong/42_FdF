@@ -6,7 +6,7 @@
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 22:30:20 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/09 18:39:20 by vduong           ###   ########.fr       */
+/*   Updated: 2018/12/09 21:12:18 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ static int	max(int a, int b)
 
 void init(t_fdf *fdf, char *filename)
 {
-	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
-		error("Malloc failed\n");
 	parse(fdf, filename);
 	fdf->unit = (float)(WIN_X - PADDING) / (float)max(fdf->x, fdf->y);
 	ft_putstr("OK\n");
-	fdf->phi = 0;
-	fdf->teta = 0;
+	fdf->phi = M_PI_2 / 8;
+	fdf->teta = 0.2;
 }
