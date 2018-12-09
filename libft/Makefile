@@ -6,11 +6,13 @@
 #    By: vduong <vduong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 14:02:33 by vduong            #+#    #+#              #
-#    Updated: 2018/12/08 09:52:04 by vduong           ###   ########.fr        #
+#    Updated: 2018/12/08 13:49:14 by vduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+CC = @gcc -Wall -Wextra -Werror
 
 SRC = ./ft_atoi.c\
 	  ./ft_bzero.c\
@@ -89,17 +91,16 @@ INC = ./libft.h
 
 OBJ = $(SRC:.c=.o)
 
-$(NAME):
-	gcc -c -Wall -Wextra -Werror $(SRC)
-	ar r $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME) : $(OBJ)
+	@ar r $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 all : $(NAME)
 
 clean : 
-	/bin/rm -rf $(OBJ)
+	@/bin/rm -rf $(OBJ)
 
 fclean :clean
-	/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME)
 
 re:fclean all

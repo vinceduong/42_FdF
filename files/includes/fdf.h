@@ -6,7 +6,7 @@
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 22:01:16 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/08 09:22:39 by vduong           ###   ########.fr       */
+/*   Updated: 2018/12/09 12:00:24 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,58 @@
 
 # define WIN_X 1000
 # define WIN_Y 1000
-
-typedef struct	s_point
-{
-	int x;
-	int y;
-	int z;
-	int new_x;
-	int new_y;
-	int new_z;
-}				t_point;
-
-typedef struct	s_system
-{
-	t_point	**points;
-	int		max_x;
-	int		max_y;
-	int		max_z;
-}				t_system;
-
+# define WHITE 0xFFFFFF
 typedef struct	s_mlx
 {
 	void	*ptr;
 	void	*window;
 }				t_mlx;				
 
+typedef struct s_point
+{
+	int x;
+	int y;
+	int z;
+	int real_x;
+	int real_y;
+}				t_point;
+
+typedef struct s_delta
+{
+	int	dx;
+	int dy;
+}				t_delta;
+
 typedef struct	s_fdf
 {
 	char		**map;
+	t_point		**points;
 	t_mlx		mlx;
-	t_system	system;
+	int			x; 
+	int			y;
+	int			unit;
+	float		phi;
+	float		teta;
 }				t_fdf;
 
-void error(char *message);
-void init(t_fdf *fdf, char *map_name);
-void parse(t_fdf *fdf, char *map_name);
-void show(t_fdf);
+/*
+*** PARSE
+*/
+
+void	error(char *message);
+void	init(t_fdf *fdf, char *map_name);
+void	parse(t_fdf *fdf, char *map_name);
+void	show(t_fdf);
+void	check_map(t_fdf *fdf);
+void	fill_points(t_fdf *fdf);
+
+/*
+*** TRACE
+*/
+
+void	trace(t_fdf *fdf, t_point a, t_point b);
+void	trace_equal(t_fdf *fdf, t_point a, t_point b);
+void	trace_inferior(t_fdf *fdf, t_point a, t_point b, t_delta delta);
+void	trace_superior(t_fdf *fdf, t_point a, t_point b, t_delta delta);
 
 #endif

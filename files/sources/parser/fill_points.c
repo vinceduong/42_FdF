@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   fill_points.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/08 09:15:17 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/08 10:20:18 by vduong           ###   ########.fr       */
+/*   Created: 2018/12/08 11:43:17 by vduong            #+#    #+#             */
+/*   Updated: 2018/12/08 14:34:32 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	parse(t_fdf* fdf, char *map_name)
+void fill_points(t_fdf *fdf)
 {
-	int fd;
-	char *line;
-	char *map;
+	int		i;
+	int		j;
+	char	*tmp;
 
-	if((fd = open(map_name, O_RDONLY)) < 0)
-		error("Can't open map\n");
-	line = NULL;
-	if (!(map = ft_strnew(1)))
+	i = 0;
+	if (!(fdf->points = malloc(sizeof(t_point *) * fdf->y)))
 		error("Malloc failed\n");
-	while (get_next_line(fd, &line) > 0)
+	while (i < fdf->y)
 	{
-		map = ft_strjoin(map, line);
-		map = ft_strjoin(map, "\n");
-		ft_strdel(&line);
+		if (!(fdf->points[i] = malloc(sizeof(t_point) * fdf->x)))
+			error("Malloc failed\n");
+		j = 0;
+		tmp = fdf->map[i];
+		while (*tmp)
+		{
+			fdf->points[i][j].z = ft_atoi(tmp);
+			fdf->points[i][j].x = j;
+			fdf->points[i][j].y = i;
+			j++;
+			tmp++;
+			while (*tmp && *tmp != ' ')
+				tmp++;
+		}
+		i++;
 	}
-	(void)fdf;
 }
