@@ -6,7 +6,7 @@
 #    By: vduong <vduong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/07 21:40:25 by vduong            #+#    #+#              #
-#    Updated: 2018/12/08 21:26:53 by vduong           ###   ########.fr        #
+#    Updated: 2018/12/09 18:29:14 by vduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,9 @@ SRCS =	files/sources/parser/check_map.c\
 		files/sources/tracing/trace_equal.c\
 		files/sources/tracing/trace_inferior.c\
 		files/sources/tracing/trace_superior.c\
+		files/sources/show/put_lines.c\
+		files/sources/show/set_real_coor.c\
+		files/sources/show/show.c\
 
 LIBFT = libft/libft.a
 
