@@ -6,7 +6,7 @@
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 22:01:16 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/09 18:30:03 by vduong           ###   ########.fr       */
+/*   Updated: 2018/12/10 08:56:40 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ void	trace_superior(t_fdf *fdf, t_point a, t_point b, t_delta delta);
 void	show(t_fdf *fdf);
 void	set_real_coor(t_fdf *fdf);
 void	put_lines(t_fdf *fdf);
-
+void	set_padding(t_fdf *fdf);
 #endif

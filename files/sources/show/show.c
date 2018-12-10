@@ -6,7 +6,7 @@
 /*   By: vduong <vduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 12:39:29 by vduong            #+#    #+#             */
-/*   Updated: 2018/12/09 19:54:55 by vduong           ###   ########.fr       */
+/*   Updated: 2018/12/10 09:05:39 by vduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void show(t_fdf *fdf)
 	fdf->mlx.window = mlx_new_window(fdf->mlx.ptr, WIN_X, WIN_Y, "FdF");
 	ft_putstr("mlx init\n");
 	set_real_coor(fdf);
+	set_padding(fdf);
 	ft_putstr("ok1\n");
 	print_points(fdf);
 	ft_putstr("ok2\n");
